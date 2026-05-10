@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Read to Lead Bookstore — Our story, mission, and team.">
+  <title>About | Read to Lead Bookstore</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="page-wrapper">
+
+<!-- Search Overlay -->
+<div id="search-overlay" role="search" aria-label="Site search">
+  <div class="container d-flex align-items-center gap-3 w-100">
+    <i class="fas fa-search fa-lg text-muted" aria-hidden="true"></i>
+    <input type="search" placeholder="Search for books, authors…" data-i18n-placeholder="navSearchPlaceholder" aria-label="Search">
+    <button class="btn-close btn-close-white search-overlay-close" aria-label="Close search"></button>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg sticky-top" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="images/logo.png" alt="Read to Lead Bookstore logo" height="42">
+      <span class="navbar-brand-text d-none d-sm-block">Read to Lead</span>
+    </a>
+    <div class="d-flex align-items-center gap-1 d-lg-none">
+      <a href="checkout.html" class="nav-icon-btn cart-icon-btn" aria-label="View cart">
+        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+        <span class="cart-badge">0</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="navHome">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#top-selling" data-i18n="navCollection">Collection</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#top-selling" data-i18n="navTopSelling">Top Selling</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html" aria-current="page" data-i18n="navAbout">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="navContact">Contact</a></li>
+      </ul>
+      <div class="navbar-icons d-none d-lg-flex align-items-center gap-1">
+        <button class="nav-icon-btn search-toggle" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
+        <button class="nav-icon-btn dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon dark-mode-icon" aria-hidden="true"></i>
+        </button>
+        <a href="checkout.html" class="nav-icon-btn cart-icon-btn" aria-label="View cart">
+          <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+          <span class="cart-badge">0</span>
+        </a>
+      </div>
+      <div class="d-lg-none border-top mt-2 pt-3">
+        <button class="btn-outline-rtl dark-mode-toggle" style="font-size:.85rem;padding:.45rem 1rem">
+          <i class="fas fa-moon dark-mode-icon me-1" aria-hidden="true"></i>
+          <span data-i18n="navDarkMode">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== ABOUT HERO ===== -->
+<header class="about-hero" role="banner">
+  <div class="blob-1" aria-hidden="true" style="opacity:.1"></div>
+  <div class="container position-relative">
+    <h1 class="about-hero-title" data-i18n="aboutHeroTitle">Our Story</h1>
+    <p class="about-hero-subtitle" data-i18n="aboutHeroSub">Bringing the best books to curious minds since 2023.</p>
+    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+      <a href="index.html#top-selling" class="btn-primary-rtl">
+        <i class="fas fa-book-open" aria-hidden="true"></i> Browse Books
+      </a>
+      <a href="contact.html" class="btn-outline-rtl" style="border-color:rgba(245,240,232,.5);color:var(--offwhite)">
+        <i class="fas fa-envelope" aria-hidden="true"></i> Contact Us
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MISSION / ICON GRID ===== -->
+<section class="section-py" aria-labelledby="mission-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title" id="mission-heading" data-i18n="aboutMission">Our Mission</h2>
+      <p class="mt-3 mx-auto" style="max-width:580px;color:var(--text-secondary)" data-i18n="aboutMissionText">
+        We believe every book has the power to change a life. Our mission is to make quality reading accessible, affordable, and inspiring for everyone.
+      </p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="icon-grid-card section-animate">
+          <div class="card-icon" style="background:rgba(232,160,69,.12)">
+            <i class="fas fa-book text-gold" aria-hidden="true"></i>
+          </div>
+          <h3 class="mb-2" style="font-size:1.1rem" data-i18n="aboutWhyBooks">Why Books Matter</h3>
+          <p style="font-size:.88rem;color:var(--text-secondary)" data-i18n="aboutWhyBooksText">
+            Books are the foundation of knowledge, empathy, and growth. We carefully select titles that challenge and inspire.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-grid-card section-animate">
+          <div class="card-icon" style="background:rgba(138,171,126,.12)">
+            <i class="fas fa-star text-sage" aria-hidden="true"></i>
+          </div>
+          <h3 class="mb-2" style="font-size:1.1rem" data-i18n="aboutCuration">Our Curation Process</h3>
+          <p style="font-size:.88rem;color:var(--text-secondary)" data-i18n="aboutCurationText">
+            Every book in our store is reviewed by our editorial team. We focus on quality, relevance, and impact.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-grid-card section-animate">
+          <div class="card-icon" style="background:rgba(242,223,215,.4)">
+            <i class="fas fa-users" style="color:var(--blush-dark)" aria-hidden="true"></i>
+          </div>
+          <h3 class="mb-2" style="font-size:1.1rem" data-i18n="aboutCommunity">Our Community</h3>
+          <p style="font-size:.88rem;color:var(--text-secondary)" data-i18n="aboutCommunityText">
+            Join 40,000+ readers who trust Read to Lead for their next great read and lifelong learning journey.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS TABLE ===== -->
+<section class="section-py" style="background:var(--bg-secondary)" aria-labelledby="stats-heading">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="section-title" id="stats-heading" data-i18n="tableTitle">Our Collection by Numbers</h2>
+    </div>
+    <div class="table-responsive">
+      <table class="stats-table" aria-label="Book collection statistics by category">
+        <thead>
+          <tr>
+            <th scope="col" data-i18n="tableCategory">Category</th>
+            <th scope="col" data-i18n="tableBooks">Books</th>
+            <th scope="col" data-i18n="tableAuthors">Authors</th>
+            <th scope="col" data-i18n="tableAvgRating">Avg. Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Fiction</td><td>320+</td><td>180+</td><td>⭐ 4.7</td></tr>
+          <tr><td>Non-Fiction</td><td>450+</td><td>290+</td><td>⭐ 4.6</td></tr>
+          <tr><td>Business</td><td>200+</td><td>150+</td><td>⭐ 4.5</td></tr>
+          <tr><td>Biography</td><td>175+</td><td>170+</td><td>⭐ 4.8</td></tr>
+          <tr><td>Design</td><td>120+</td><td>90+</td><td>⭐ 4.4</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>1,265+</strong></td><td><strong>880+</strong></td><td><strong>⭐ 4.6</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section class="section-py" aria-labelledby="journey-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title" id="journey-heading" data-i18n="aboutMilestones">Our Journey</h2>
+    </div>
+    <div class="timeline" role="list">
+      <div class="timeline-item section-animate" role="listitem">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <p class="timeline-year">2023</p>
+          <p class="timeline-event">Founded in Mazar-e-sharif</p>
+          <p class="timeline-desc">Read to Lead opened its first small bookshop with just 200 hand-picked titles.</p>
+        </div>
+      </div>
+      <div class="timeline-item section-animate" role="listitem">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <p class="timeline-year">2024</p>
+          <p class="timeline-event">First 1,000 Books</p>
+          <p class="timeline-desc">Our collection grew to over 1,000 titles across all major categories.</p>
+        </div>
+      </div>
+      <div class="timeline-item section-animate" role="listitem">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <p class="timeline-year">2025</p>
+          <p class="timeline-event">Launched Online Store</p>
+          <p class="timeline-desc">We went digital bringing books to readers across Afghanistan and beyond.</p>
+        </div>
+      </div>
+      <div class="timeline-item section-animate" role="listitem">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <p class="timeline-year">2025</p>
+          <p class="timeline-event">1000+ Readers</p>
+          <p class="timeline-desc">Our community grew to 40,000+ active readers and 1,200+ book titles.</p>
+        </div>
+      </div>
+      <div class="timeline-item section-animate" role="listitem">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <p class="timeline-year">2026</p>
+          <p class="timeline-event">Multilingual Platform</p>
+          <p class="timeline-desc">Launched our new website in English, Dari, and Pashto to serve all Afghan readers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="section-py" style="background:var(--bg-secondary)" aria-labelledby="team-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title" id="team-heading" data-i18n="aboutTeam">Meet the Team</h2>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="team-card section-animate">
+          <img src="images/Shayesta.jpg"
+            alt="Ahmad Karimi — Founder and CEO" class="team-avatar">
+          <p class="team-name">Shayesta Haqjo</p>
+          <p class="team-role">Founder & CEO</p>
+          <p class="team-bio">Book lover and entrepreneur. Shayesta started Read to Lead with a vision to make education accessible across Afghanistan.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="team-card section-animate">
+          <img src="images/Shamila.jpg"
+            alt="Sara Ahmadi — Head of Curation" class="team-avatar">
+          <p class="team-name">Shamila Nasimi</p>
+          <p class="team-role">Head of Curation</p>
+          <p class="team-bio">Literature student with a passion for stories. Shamila personally reviews every book added to our collection.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="team-card section-animate">
+          <img src="images/Wahab.jpg"
+            alt="Omar Rahimi — Tech Lead" class="team-avatar">
+          <p class="team-name">Abdul Wahab</p>
+          <p class="team-role">Tech Lead</p>
+          <p class="team-bio">Full-stack developer who manage our platform. Passionate about open-source and education technology.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <img src="images/logo.png" alt="Read to Lead Bookstore logo" class="footer-logo">
+        <p class="footer-brand-text">Read to Lead</p>
+        <p class="footer-tagline" data-i18n="footerTagline">Curated books for curious minds. Grow your knowledge, one page at a time.</p>
+        <div class="mb-3">
+          <select id="lang-select" class="lang-select footer-select" aria-label="Select language">
+            <option value="en">🌐 English</option>
+            <option value="fa">🌐 دری (Dari)</option>
+            <option value="ps">🌐 پښتو (Pashto)</option>
+          </select>
+        </div>
+        <nav class="social-links" aria-label="Social media">
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <h3 class="footer-heading" data-i18n="footerHome">Home</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" data-i18n="navHome">Homepage</a></li>
+          <li><a href="about.html" data-i18n="navAbout">About Us</a></li>
+          <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+          <li><a href="checkout.html" data-i18n="navCart">Cart</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <h3 class="footer-heading" data-i18n="footerShopBy">Shop By</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#top-selling" data-i18n="filterFiction">Fiction</a></li>
+          <li><a href="index.html#top-selling" data-i18n="filterNonFiction">Non-Fiction</a></li>
+          <li><a href="index.html#top-selling" data-i18n="filterBusiness">Business</a></li>
+          <li><a href="index.html#top-selling" data-i18n="filterDesign">Design</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <h3 class="footer-heading" data-i18n="footerSupport">Support</h3>
+        <ul class="footer-links">
+          <li><a href="#" data-i18n="footerFAQ">FAQ</a></li>
+          <li><a href="#" data-i18n="footerShipping">Shipping Info</a></li>
+          <li><a href="#" data-i18n="footerReturns">Returns</a></li>
+          <li><a href="#" data-i18n="footerPrivacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footerCopyright">© 2026 Read to Lead Bookstore. All rights reserved.</span>
+      <span data-i18n="footerCredit">Crafted with ♥ by Shayesta for book lovers</span>
+    </div>
+  </div>
+</footer>
+
+<button id="scroll-top-btn" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+    }, {threshold:.1});
+    document.querySelectorAll('.section-animate').forEach(el => obs.observe(el));
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Read to Lead Bookstore — Send us a message.">
+  <title>Contact | Read to Lead Bookstore</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="page-wrapper">
+
+<!-- Search Overlay -->
+<div id="search-overlay" role="search">
+  <div class="container d-flex align-items-center gap-3 w-100">
+    <i class="fas fa-search fa-lg text-muted" aria-hidden="true"></i>
+    <input type="search" placeholder="Search for books, authors…" data-i18n-placeholder="navSearchPlaceholder" aria-label="Search">
+    <button class="btn-close btn-close-white search-overlay-close" aria-label="Close search"></button>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg sticky-top" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="images/logo.png" alt="Read to Lead Bookstore logo" height="42">
+      <span class="navbar-brand-text d-none d-sm-block">Read to Lead</span>
+    </a>
+    <div class="d-flex align-items-center gap-1 d-lg-none">
+      <a href="checkout.html" class="nav-icon-btn cart-icon-btn" aria-label="View cart">
+        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+        <span class="cart-badge">0</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="navHome">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#top-selling" data-i18n="navCollection">Collection</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#top-selling" data-i18n="navTopSelling">Top Selling</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="navAbout">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page" data-i18n="navContact">Contact</a></li>
+      </ul>
+      <div class="navbar-icons d-none d-lg-flex align-items-center gap-1">
+        <button class="nav-icon-btn search-toggle" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
+        <button class="nav-icon-btn dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon dark-mode-icon" aria-hidden="true"></i>
+        </button>
+        <a href="checkout.html" class="nav-icon-btn cart-icon-btn" aria-label="View cart">
+          <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+          <span class="cart-badge">0</span>
+        </a>
+      </div>
+      <div class="d-lg-none border-top mt-2 pt-3">
+        <button class="btn-outline-rtl dark-mode-toggle" style="font-size:.85rem;padding:.45rem 1rem">
+          <i class="fas fa-moon dark-mode-icon me-1" aria-hidden="true"></i>
+          <span data-i18n="navDarkMode">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<header class="page-hero">
+  <div class="container">
+    <h1 class="section-title" data-i18n="contactTitle">Get in Touch</h1>
+    <p class="mt-3" style="color:var(--text-secondary);max-width:500px;margin:1rem auto 0" data-i18n="contactSubtitle">
+      We'd love to hear from you. Send us a message and we'll respond within 24 hours.
+    </p>
+  </div>
+</header>
+
+<!-- ===== CONTACT BODY ===== -->
+<main class="section-py">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- CONTACT FORM -->
+      <div class="col-lg-7">
+        <!-- Form card -->
+        <div class="form-card section-animate" id="form-wrapper">
+          <h2 class="mb-4" style="font-family:var(--font-display);font-size:1.4rem" data-i18n="contactTitle">Send a Message</h2>
+
+          <form id="contact-form" novalidate aria-label="Contact form">
+            <!-- Full Name -->
+            <div class="form-group-rtl">
+              <label class="form-label-rtl" for="contact-name" data-i18n="contactFullName">Full Name</label>
+              <input class="form-control-rtl" type="text" id="contact-name" name="name"
+                placeholder="Your full name" required
+                data-validate="text" data-label="Full Name"
+                autocomplete="name" aria-required="true">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group-rtl">
+              <label class="form-label-rtl" for="contact-email" data-i18n="contactEmail">Email Address</label>
+              <input class="form-control-rtl" type="email" id="contact-email" name="email"
+                placeholder="you@example.com" required
+                data-validate="email" data-label="Email"
+                autocomplete="email" aria-required="true">
+            </div>
+
+            <!-- Subject -->
+            <div class="form-group-rtl">
+              <label class="form-label-rtl" for="contact-subject" data-i18n="contactSubject">Subject</label>
+              <input class="form-control-rtl" type="text" id="contact-subject" name="subject"
+                placeholder="What is this about?" required
+                data-label="Subject" aria-required="true">
+            </div>
+
+            <!-- Message -->
+            <div class="form-group-rtl">
+              <label class="form-label-rtl" for="contact-message" data-i18n="contactMessage">Message</label>
+              <textarea class="form-control-rtl" id="contact-message" name="message"
+                rows="5" placeholder="Write your message here (min. 20 characters)…" required
+                data-validate="minlength" data-min="20" data-label="Message"
+                aria-required="true"></textarea>
+            </div>
+
+            <button type="submit" id="contact-submit-btn" class="btn-primary-rtl w-100 mt-1" disabled
+              style="justify-content:center;border:none">
+              <i class="fas fa-paper-plane me-1" aria-hidden="true"></i>
+              <span data-i18n="contactSubmit">Send Message</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- SUCCESS CARD (hidden until form submitted) -->
+        <div class="contact-success-card" id="contact-success" style="display:none" role="alert" aria-live="polite">
+          <div style="font-size:3rem;margin-bottom:1rem">✅</div>
+          <h3 data-i18n="contactSuccessTitle">Message Sent! ✓</h3>
+          <p style="color:var(--text-secondary)" data-i18n="contactSuccessText">
+            Thank you for reaching out. We'll get back to you within 24 hours.
+          </p>
+          <a href="index.html" class="btn-primary-rtl mt-3" style="justify-content:center">
+            <i class="fas fa-home me-1" aria-hidden="true"></i> Back to Home
+          </a>
+        </div>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="col-lg-5">
+        <div class="form-card section-animate h-100">
+          <h2 class="mb-4" style="font-family:var(--font-display);font-size:1.4rem">Contact Information</h2>
+
+          <address style="font-style:normal">
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <strong>Address</strong>
+                <p style="font-size:.88rem;color:var(--text-secondary);margin:0" data-i18n="contactAddress">
+                  Book Street, Kabul, Afghanistan
+                </p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <p style="font-size:.88rem;margin:0">
+                  <a href="mailto:shayestahaqjo@gmail.com" data-i18n="contactEmailAddr">shayestahaqjo@gmail.com</a>
+                </p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+              <div>
+                <strong>Phone</strong>
+                <p style="font-size:.88rem;margin:0">
+                  <a href="tel:+93767457442" data-i18n="contactPhone">+93 767 457 442</a>
+                </p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+              <div>
+                <strong>Hours</strong>
+                <p style="font-size:.88rem;color:var(--text-secondary);margin:0" data-i18n="contactHours">
+                  Mon – Fri: 9am – 6pm
+                </p>
+              </div>
+            </div>
+          </address>
+
+          <!-- Map embed -->
+          <!-- <div class="mt-3 rounded overflow-hidden" style="border:2px solid var(--border-color)">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210040.52127706163!2d69.00516!3d34.52813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16ec3b7e47041%3A0xd728f990e8e95c77!2sKabul%2C+Afghanistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+              width="100%" height="200" style="border:0;display:block" allowfullscreen=""
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Read to Lead Bookstore location in Kabul, Afghanistan" aria-label="Map showing our location in Kabul"></iframe>
+          </div> -->
+
+          <!-- Social -->
+          <div class="mt-4">
+            <strong>Follow us:</strong>
+            <nav class="social-links mt-2" aria-label="Social media links">
+              <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+              <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <img src="images/logo.png" alt="Read to Lead Bookstore logo" class="footer-logo">
+        <p class="footer-brand-text">Read to Lead</p>
+        <p class="footer-tagline" data-i18n="footerTagline">Curated books for curious minds.</p>
+        <div class="mb-3">
+          <select id="lang-select" class="lang-select footer-select" aria-label="Select language">
+            <option value="en">🌐 English</option>
+            <option value="fa">🌐 دری (Dari)</option>
+            <option value="ps">🌐 پښتو (Pashto)</option>
+          </select>
+        </div>
+        <nav class="social-links" aria-label="Social media">
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <h3 class="footer-heading" data-i18n="footerHome">Home</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" data-i18n="navHome">Homepage</a></li>
+          <li><a href="about.html" data-i18n="navAbout">About Us</a></li>
+          <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+          <li><a href="checkout.html" data-i18n="navCart">Cart</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <h3 class="footer-heading" data-i18n="footerSupport">Support</h3>
+        <ul class="footer-links">
+          <li><a href="#" data-i18n="footerFAQ">FAQ</a></li>
+          <li><a href="#" data-i18n="footerShipping">Shipping Info</a></li>
+          <li><a href="#" data-i18n="footerReturns">Returns</a></li>
+          <li><a href="#" data-i18n="footerPrivacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footerCopyright">© 2026 Read to Lead Bookstore. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<button id="scroll-top-btn" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+    }, {threshold:.1});
+    document.querySelectorAll('.section-animate').forEach(el => obs.observe(el));
+  });
+</script>
+</body>
+</html>

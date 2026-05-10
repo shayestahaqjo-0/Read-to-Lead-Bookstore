@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cart & Checkout — Read to Lead Bookstore">
+  <title>Cart & Checkout | Read to Lead Bookstore</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="page-wrapper">
+
+<!-- Search Overlay -->
+<div id="search-overlay" role="search">
+  <div class="container d-flex align-items-center gap-3 w-100">
+    <i class="fas fa-search fa-lg text-muted" aria-hidden="true"></i>
+    <input type="search" placeholder="Search for books…" data-i18n-placeholder="navSearchPlaceholder" aria-label="Search">
+    <button class="btn-close btn-close-white search-overlay-close" aria-label="Close search"></button>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg sticky-top" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="images/logo.png" alt="Read to Lead Bookstore logo" height="42">
+      <span class="navbar-brand-text d-none d-sm-block">Read to Lead</span>
+    </a>
+    <div class="d-flex align-items-center gap-1 d-lg-none">
+      <span class="nav-icon-btn cart-icon-btn" aria-label="Cart items">
+        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+        <span class="cart-badge">0</span>
+      </span>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="navHome">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#top-selling" data-i18n="navCollection">Collection</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="navAbout">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="navContact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link active" href="checkout.html" aria-current="page" data-i18n="navCart">Cart</a></li>
+      </ul>
+      <div class="navbar-icons d-none d-lg-flex align-items-center gap-1">
+        <button class="nav-icon-btn search-toggle" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
+        <button class="nav-icon-btn dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon dark-mode-icon" aria-hidden="true"></i>
+        </button>
+        <span class="nav-icon-btn cart-icon-btn">
+          <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+          <span class="cart-badge">0</span>
+        </span>
+      </div>
+      <div class="d-lg-none border-top mt-2 pt-3">
+        <button class="btn-outline-rtl dark-mode-toggle" style="font-size:.85rem;padding:.45rem 1rem">
+          <i class="fas fa-moon dark-mode-icon me-1" aria-hidden="true"></i>
+          <span data-i18n="navDarkMode">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+<!-- ===== PART A: CART SECTION ===== -->
+<section id="cart-section" aria-labelledby="cart-heading">
+  <div class="page-hero">
+    <div class="container">
+      <h1 class="section-title" id="cart-heading" data-i18n="cartTitle">Your Cart</h1>
+    </div>
+  </div>
+
+  <div class="container section-py">
+
+    <!-- EMPTY STATE -->
+    <div id="cart-empty-state" class="empty-cart-state" style="display:none" role="status">
+      <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+      <h3 data-i18n="cartEmpty">Your cart is empty</h3>
+      <p data-i18n="cartEmptySub">Browse our collection and add some books!</p>
+      <a href="index.html#top-selling" class="btn-primary-rtl mt-3" style="justify-content:center">
+        <i class="fas fa-book-open me-1" aria-hidden="true"></i>
+        <span data-i18n="cartBrowse">Browse Books</span>
+      </a>
+    </div>
+
+    <!-- CART CONTENT -->
+    <div id="cart-content" style="display:none">
+      <div class="row g-4">
+        <!-- Items list -->
+        <div class="col-lg-8">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <a href="index.html" class="view-all-link" data-i18n="continueShopping">← Continue Shopping</a>
+          </div>
+          <div id="cart-items-container" aria-live="polite" aria-label="Cart items"></div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-4" id="order-summary" style="display:none">
+          <aside class="order-summary-card" aria-label="Order summary">
+            <h2 class="order-summary-title" data-i18n="orderSummary">Order Summary</h2>
+            <div class="summary-row">
+              <span data-i18n="cartSubtotal">Subtotal</span><span id="summary-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span data-i18n="cartShipping">Shipping</span><span id="summary-shipping">—</span>
+            </div>
+            <div class="summary-row">
+              <span data-i18n="cartTax">Tax (8%)</span><span id="summary-tax">$0.00</span>
+            </div>
+            <div class="summary-row total">
+              <span data-i18n="cartTotal">Total</span><span id="summary-total" style="color:var(--gold)">$0.00</span>
+            </div>
+            <p id="shipping-note" class="small mt-2" style="color:var(--sage)"></p>
+            <button id="proceed-to-checkout" class="btn-primary-rtl w-100 mt-3" style="justify-content:center;border:none">
+              <i class="fas fa-lock me-1" aria-hidden="true"></i>
+              <span data-i18n="proceedCheckout">Proceed to Checkout</span>
+            </button>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART B: CHECKOUT SECTION ===== -->
+<section id="checkout-section" style="display:none" aria-labelledby="checkout-heading">
+  <div class="page-hero">
+    <div class="container">
+      <h1 class="section-title" id="checkout-heading" data-i18n="checkoutTitle">Checkout</h1>
+    </div>
+  </div>
+
+  <div class="container section-py">
+    <div class="row g-4">
+
+      <!-- CHECKOUT FORM -->
+      <div class="col-lg-8">
+        <div class="mb-3">
+          <button id="back-to-cart" class="view-all-link" style="background:none;border:none;padding:0;cursor:pointer">
+            <span data-i18n="backToCart">← Back to Cart</span>
+          </button>
+        </div>
+
+        <form id="checkout-form" novalidate aria-label="Checkout form">
+
+          <!-- Personal Info -->
+          <div class="checkout-form-card">
+            <h2 data-i18n="personalInfo">Personal Information</h2>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="first-name" data-i18n="firstName">First Name</label>
+                  <input class="form-control-rtl" type="text" id="first-name" name="firstName"
+                    placeholder="Ahmad" required data-label="First Name" autocomplete="given-name">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="last-name" data-i18n="lastName">Last Name</label>
+                  <input class="form-control-rtl" type="text" id="last-name" name="lastName"
+                    placeholder="Karimi" required data-label="Last Name" autocomplete="family-name">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="checkout-email" data-i18n="email">Email Address</label>
+                  <input class="form-control-rtl" type="email" id="checkout-email" name="email"
+                    placeholder="you@example.com" required data-validate="email" data-label="Email" autocomplete="email">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="checkout-phone" data-i18n="phone">Phone Number</label>
+                  <input class="form-control-rtl" type="tel" id="checkout-phone" name="phone"
+                    placeholder="+93 700 000 000" data-validate="phone" data-label="Phone" autocomplete="tel">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping Address -->
+          <div class="checkout-form-card">
+            <h2 data-i18n="shippingInfo">Shipping Address</h2>
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="address" data-i18n="address">Street Address</label>
+                  <input class="form-control-rtl" type="text" id="address" name="address"
+                    placeholder="123 Book Street" required data-label="Address" autocomplete="street-address">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="city" data-i18n="city">City</label>
+                  <input class="form-control-rtl" type="text" id="city" name="city"
+                    placeholder="Kabul" required data-label="City" autocomplete="address-level2">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="country" data-i18n="country">Country</label>
+                  <select class="form-control-rtl" id="country" name="country" required autocomplete="country">
+                    <option value="" data-i18n="selectCountry">Select country…</option>
+                    <option value="AF">Afghanistan</option>
+                    <option value="PK">Pakistan</option>
+                    <option value="IR">Iran</option>
+                    <option value="US">United States</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="DE">Germany</option>
+                    <option value="CA">Canada</option>
+                    <option value="AU">Australia</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="zip" data-i18n="zipCode">ZIP / Postal Code</label>
+                  <input class="form-control-rtl" type="text" id="zip" name="zip"
+                    placeholder="1001" required data-validate="zip" data-label="ZIP" autocomplete="postal-code">
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="d-flex align-items-center gap-2" style="cursor:pointer;font-size:.88rem">
+                  <input type="checkbox" id="same-as-billing"> 
+                  <span data-i18n="sameAsBilling">Billing address same as shipping</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <div class="checkout-form-card">
+            <h2 data-i18n="paymentInfo">Payment Details <span style="font-size:.75rem;color:var(--sage)">(Test Mode)</span></h2>
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="card-number" data-i18n="cardNumber">Card Number</label>
+                  <div style="position:relative">
+                    <input class="form-control-rtl" type="text" id="card-number" name="cardNumber"
+                      placeholder="1234 5678 9012 3456" required
+                      data-validate="card" data-label="Card Number"
+                      maxlength="19" autocomplete="cc-number" inputmode="numeric">
+                    <i class="fas fa-credit-card" aria-hidden="true"
+                      style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:var(--text-muted)"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="expiry" data-i18n="expiryDate">Expiry (MM/YY)</label>
+                  <input class="form-control-rtl" type="text" id="expiry" name="expiry"
+                    placeholder="MM/YY" required data-validate="expiry" data-label="Expiry"
+                    maxlength="5" autocomplete="cc-exp">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group-rtl">
+                  <label class="form-label-rtl" for="cvv" data-i18n="cvv">CVV</label>
+                  <input class="form-control-rtl" type="text" id="cvv" name="cvv"
+                    placeholder="123" required data-validate="cvv" data-label="CVV"
+                    maxlength="3" autocomplete="cc-csc" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 p-3 rounded d-flex align-items-center gap-2"
+              style="background:rgba(138,171,126,.1);border:1px solid rgba(138,171,126,.3);font-size:.82rem;color:var(--sage)">
+              <i class="fas fa-lock" aria-hidden="true"></i>
+              Your payment information is encrypted and secure. This is a test checkout — no real charges.
+            </div>
+          </div>
+
+          <button type="submit" id="place-order-btn" class="btn-primary-rtl w-100" 
+            style="justify-content:center;border:none;font-size:1rem;padding:.85rem" disabled>
+            <i class="fas fa-check-circle me-1" aria-hidden="true"></i>
+            <span data-i18n="placeOrder">Place Order</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- ORDER SUMMARY SIDEBAR -->
+      <div class="col-lg-4">
+        <aside class="order-summary-card" aria-label="Order summary">
+          <h2 class="order-summary-title" data-i18n="orderSummary">Order Summary</h2>
+          <div class="summary-row">
+            <span data-i18n="cartSubtotal">Subtotal</span><span id="summary-subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span data-i18n="cartShipping">Shipping</span><span id="summary-shipping">—</span>
+          </div>
+          <div class="summary-row">
+            <span data-i18n="cartTax">Tax (8%)</span><span id="summary-tax">$0.00</span>
+          </div>
+          <div class="summary-row total">
+            <span data-i18n="cartTotal">Total</span>
+            <span id="summary-total" style="color:var(--gold)">$0.00</span>
+          </div>
+          <p id="shipping-note" class="small mt-2" style="color:var(--sage)"></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== ORDER CONFIRMATION MODAL ===== -->
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+    <div class="modal-content" style="background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-color)">
+      <div class="modal-header" style="border-color:var(--border-color)">
+        <h2 class="modal-title" id="orderModalLabel" style="font-family:var(--font-display);font-size:1.3rem" data-i18n="orderConfirmed">
+          Order Confirmed! 🎉
+        </h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="order-modal-body">
+        <!-- Filled by JS -->
+      </div>
+      <div class="modal-footer" style="border-color:var(--border-color)">
+        <button type="button" class="btn-primary-rtl" data-bs-dismiss="modal" style="border:none">
+          <i class="fas fa-home me-1" aria-hidden="true"></i>
+          <span data-i18n="continueBrowsing">Continue Shopping</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <img src="images/logo.png" alt="Read to Lead Bookstore logo" class="footer-logo">
+        <p class="footer-brand-text">Read to Lead</p>
+        <p class="footer-tagline" data-i18n="footerTagline">Curated books for curious minds.</p>
+        <div class="mb-3">
+          <select id="lang-select" class="lang-select footer-select" aria-label="Select language">
+            <option value="en">🌐 English</option>
+            <option value="fa">🌐 دری (Dari)</option>
+            <option value="ps">🌐 پښتو (Pashto)</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="currency-select" class="visually-hidden">Currency</label>
+          <select id="currency-select" class="footer-select" aria-label="Select currency">
+            <option>$ USD</option><option>AFN ؋</option><option>€ EUR</option>
+          </select>
+        </div>
+        <nav class="social-links" aria-label="Social media">
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <h3 class="footer-heading" data-i18n="footerHome">Home</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" data-i18n="navHome">Homepage</a></li>
+          <li><a href="about.html" data-i18n="navAbout">About Us</a></li>
+          <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <h3 class="footer-heading" data-i18n="footerSupport">Support</h3>
+        <ul class="footer-links">
+          <li><a href="#" data-i18n="footerFAQ">FAQ</a></li>
+          <li><a href="#" data-i18n="footerShipping">Shipping Info</a></li>
+          <li><a href="#" data-i18n="footerReturns">Returns</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footerCopyright">© 2026 Read to Lead Bookstore. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<button id="scroll-top-btn" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
